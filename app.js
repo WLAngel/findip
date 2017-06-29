@@ -8,7 +8,6 @@ var app = express()
 app.get('/ip', function(req, res) {
   httpsrequest = https.request(options, (httpsresponse) => {
     httpsresponse.on('data', (chunk) => {
-      console.log(chunk.toString())
       res.json({
         ServerIP: JSON.parse(chunk.toString()).sourceIp,
         ClientIP: req.connection.remoteAddress
