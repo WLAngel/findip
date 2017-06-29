@@ -10,7 +10,7 @@ app.get('/ip', function(req, res) {
     httpsresponse.on('data', (chunk) => {
       console.log(chunk.toString())
       res.json({
-        ServerIP: chunk.toString(),
+        ServerIP: JSON.parse(chunk.toString()).sourceIp,
         ClientIP: req.connection.remoteAddress
       })
     })
